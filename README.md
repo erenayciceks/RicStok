@@ -1,4 +1,4 @@
-# RicStok - Market Yönetim Sistemi
+# RicStok - Stok Yönetim Sistemi
 
 RicStok, Ruby programlama dili ile geliştirilmiş kapsamlı bir market yönetim sistemidir.
 

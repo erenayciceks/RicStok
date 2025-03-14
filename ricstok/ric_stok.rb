@@ -30,6 +30,7 @@ end
 
 class UrunYonetimi
   KATEGORILER = ['Gıda', 'İçecek', 'Temizlik', 'Kişisel Bakım', 'Ev Gereçleri', 'Diğer']
+  VERI_DIZINI = File.dirname(__FILE__)
 
   def initialize
     @urunler = load_urunler
@@ -37,27 +38,45 @@ class UrunYonetimi
   end
 
   def load_urunler
-    if File.exist?('urunler.json')
-      JSON.parse(File.read('urunler.json'))
-    else
+    dosya_yolu = File.join(VERI_DIZINI, 'urunler.json')
+    begin
+      if File.exist?(dosya_yolu)
+        JSON.parse(File.read(dosya_yolu))
+      else
+        File.write(dosya_yolu, '{}')
+        {}
+      end
+    rescue JSON::ParserError => e
+      puts Renkler.kirmizi("\nHATA: urunler.json dosyası bozuk!")
+      File.write(dosya_yolu, '{}')
       {}
     end
   end
 
   def load_satis_gecmisi
-    if File.exist?('satis_gecmisi.json')
-      JSON.parse(File.read('satis_gecmisi.json'))
-    else
+    dosya_yolu = File.join(VERI_DIZINI, 'satis_gecmisi.json')
+    begin
+      if File.exist?(dosya_yolu)
+        JSON.parse(File.read(dosya_yolu))
+      else
+        File.write(dosya_yolu, '[]')
+        []
+      end
+    rescue JSON::ParserError => e
+      puts Renkler.kirmizi("\nHATA: satis_gecmisi.json dosyası bozuk!")
+      File.write(dosya_yolu, '[]')
       []
     end
   end
 
   def save_urunler
-    File.write('urunler.json', JSON.pretty_generate(@urunler))
+    dosya_yolu = File.join(VERI_DIZINI, 'urunler.json')
+    File.write(dosya_yolu, JSON.pretty_generate(@urunler))
   end
 
   def save_satis_gecmisi
-    File.write('satis_gecmisi.json', JSON.pretty_generate(@satis_gecmisi))
+    dosya_yolu = File.join(VERI_DIZINI, 'satis_gecmisi.json')
+    File.write(dosya_yolu, JSON.pretty_generate(@satis_gecmisi))
   end
 
   def urun_ekle(kod, isim, fiyat, miktar, kategori, birim = 'adet')

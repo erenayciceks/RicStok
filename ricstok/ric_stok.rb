@@ -22,7 +22,7 @@ def show_banner
   puts "\n"
   puts Renkler.sari("     Market Yönetim Sistemi v2.0")
   puts Renkler.sari("     Geliştirici: RicSoft Yazılım")
-  puts Renkler.sari("     © 2024 Tüm hakları saklıdır.")
+  puts Renkler.sari("     © 2025 Tüm hakları saklıdır.")
   puts "\n"
   puts Renkler.mor("=" * 60)
   puts "\n"

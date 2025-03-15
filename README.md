@@ -17,11 +17,11 @@ RicStok, Ruby programlama dili ile geliştirilmiş kapsamlı bir stok yönetim s
 1. Ruby'nin bilgisayarınızda kurulu olduğundan emin olun
 2. Projeyi klonlayın:
 ```bash
-git clone https://github.com/erenayciceks/ric_stok.git
+git clone https://github.com/erenayciceks/RicStok
 ```
 3. Proje dizinine gidin:
 ```bash
-cd ric_stok
+cd ricstok
 ```
 4. Programı çalıştırın:
 ```bash

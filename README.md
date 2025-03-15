@@ -51,7 +51,7 @@ Program verileri JSON formatında iki farklı dosyada saklar:
 
 ## Geliştirici
 
-RicSoft Yazılım © 2024
+RicSoft Yazılım © 2025
 
 ## Lisans
 
